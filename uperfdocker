@@ -19,3 +19,4 @@ RUN apt update
 RUN apt install -y sysstat libsctp1
 RUN sed -i "s/false/true/g" /etc/default/sysstat
 RUN service sysstat restart
+CMD ["/bin/bash"]
