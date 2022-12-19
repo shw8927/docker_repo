@@ -18,4 +18,6 @@ EXPOSE 44390
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 ###disable access log 'access_log  /var/log/nginx/access.log  main;''
 RUN sed -i.bak 's/access_log\(.*\) main;/access_log  off;/'  /etc/nginx/nginx.conf
-
+RUN cd /usr/share/nginx/html/ && dd if=/dev/zero of=1b.bin bs=c count=1 && dd if=/dev/zero of=1kb.bin bs=1kB count=1 \
+    && dd if=/dev/zero of=10kb.bin bs=1kB count=10 && dd if=/dev/zero of=100kb.bin bs=1kB count=100 
+    
